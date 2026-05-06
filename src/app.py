@@ -158,7 +158,7 @@ def render_experiment_tracker():
 
 def main():
     st.set_page_config(layout="wide")
-    st.title("BirdWatcher: Spurious Correlation Fixer")
+    st.title("BirdWatcher")
 
     initialize_state()
 
@@ -179,7 +179,7 @@ def main():
 
     # --- Column 1: Current Model State ---
     with col1:
-        st.header("1. Current Model State")
+        st.header("Current Output")
 
         cam, pred_class = get_baseline_cam(model, batch_tensor)
         heatmap_overlay = overlay_heatmap(raw_pil_image, cam)
@@ -198,8 +198,7 @@ def main():
 
     # --- Column 2: Interact & Train ---
     with col2:
-        st.header("2. Guide Model")
-        st.write("Paint over the actual bird to penalize background attention.")
+        st.header("Paint Bird")
 
         canvas_result = st_canvas(
             fill_color="rgba(255, 0, 0, 0.3)",

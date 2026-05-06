@@ -1,0 +1,9 @@
+streamlit
+streamlit-drawable-canvas
+torch
+torchvision
+datasets
+numpy
+Pillow
+matplotlib
+pytest

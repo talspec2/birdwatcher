@@ -12,16 +12,11 @@ class HookedResNet18(nn.Module):
     def __init__(self):
         super().__init__()
 
-        # pre-trained resnet18
         self.model = resnet18(weights=ResNet18_Weights.DEFAULT)
 
-        # modify final layer for binary classification
-        # idea: save database of actual classified birds
-        # and do the binary classification later
         num_ftrs = self.model.fc.in_features
         self.model.fc = nn.Linear(num_ftrs, 2)
 
-        # storage for hooks
         self.activations = None
         self.gradients = None
 
